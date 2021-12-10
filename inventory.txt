@@ -1,0 +1,1 @@
+ecadr ansible_host=20.204.74.41 ansible_connection=ssh ansible_user=ecateamdr ansible_ssh_pass=ecateamdr@123
