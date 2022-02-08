@@ -28,13 +28,13 @@
   # - debug: 
         # msg: "{{ item }}"
       # with_items: "{{ mypass.dict }}"
-    - name: To ping to Slack to send message
-      slack:
-         token: T4W1S5P34/B02MEUC40E9/l2MFto4HqO4YQAshibqrksaN
-         domain: hooks.slack.com
-         channel: 'ansible_eca_test'
-         msg: "{{mypass.stdout}}"
-      when: (my_var | int) >= 100
+#    - name: To ping to Slack to send message
+#      slack:
+#         token: T4W1S5P34/B02MEUC40E9/l2MFto4HqO4YQAshibqrksaN
+#         domain: hooks.slack.com
+#         channel: 'ansible_eca_test'
+#         msg: "{{mypass.stdout}}"
+#      when: (my_var | int) >= 100
 
 
 
