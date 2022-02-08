@@ -1,1 +1,1 @@
-ecadr ansible_host=localhost ansible_connection=ssh ansible_user=admin ansible_ssh_pass=Crashday$007
+ecadr ansible_host=localhost ansible_connection=ssh ansible_user=root ansible_ssh_pass=tmWBT9sR43EM
