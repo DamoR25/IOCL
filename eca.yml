@@ -8,7 +8,7 @@
       #shell:  
       # chdir: s	cript
       # cmd: eca.sh
-      shell: sh script/eca.sh
+      shell: sh eca/eca.sh
       failed_when: false
       register: mypass
     - name: Print the script result
