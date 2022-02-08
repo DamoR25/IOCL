@@ -1,0 +1,43 @@
+---
+- name: Check service status
+  hosts: all
+  tasks:
+    - name: "check status of spooler-service"
+      win_service: 
+        name: spooler
+      register: result
+      failed_when: result is not defined
+    - name: "print status of service"
+      debug: 
+        var: result.state
+    - name: To ping to Slack to send message
+      slack:
+         token: T4W1S5P34/B02MEUC40E9/l2MFto4HqO4YQAshibqrksaN
+         domain: hooks.slack.com
+         channel: 'ansible_eca_test'
+         msg: "The windows service spooler is not in running state in {{ inventory_hostname }}. Ansible Bot is restarting the service "
+      when: result.state != "running"
+      delegate_to: localhost
+    - name: Restart a service
+      win_service:
+          name: spooler
+          state: restarted
+      when: result.state != "running" 
+
+    - name: "check status of spooler-service"
+      win_service:
+          name: spooler
+      register: result1
+      failed_when: result1 is not defined
+    - name: "print status of service"
+      debug:
+        var: result1.state
+    - name: To ping to Slack to send message
+      slack:
+         token: T4W1S5P34/B02MEUC40E9/l2MFto4HqO4YQAshibqrksaN
+         domain: hooks.slack.com
+         channel: 'ansible_eca_test'
+         msg: "The windows service spooler is in running state in {{ inventory_hostname }}. Ansible Bot has restarted the service "
+      when: (result.state != "running") and (result1.state == "running")
+      delegate_to: localhost
+    
