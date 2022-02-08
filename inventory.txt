@@ -1,1 +1,1 @@
-ecadr ansible_host=127.0.0.1 ansible_connection=ssh ansible_user=admin ansible_ssh_pass=password
+ansible_host=127.0.0.1 ansible_connection=ssh ansible_user=admin ansible_ssh_pass=password
